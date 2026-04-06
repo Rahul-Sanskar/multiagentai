@@ -1,0 +1,53 @@
+services:
+
+  # ── FastAPI application ───────────────────────────────────────────────────
+  app:
+    build: .
+    container_name: multiagentai
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # Override DATABASE_URL to point at the postgres service when it's enabled.
+      # Comment this block out (and uncomment the postgres service below) to use SQLite.
+      DATABASE_URL: sqlite+aiosqlite:////app/data/dev.db
+    volumes:
+      # Persist SQLite database across restarts
+      - sqlite_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health').raise_for_status()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ── PostgreSQL (optional) ─────────────────────────────────────────────────
+  # To switch from SQLite to Postgres:
+  #   1. Uncomment the `postgres` service below.
+  #   2. Change the app's DATABASE_URL environment variable to:
+  #        DATABASE_URL: postgresql+asyncpg://multiagent:multiagent@postgres:5432/multiagent
+  #   3. Run: docker-compose up --build
+  #
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: multiagentai_db
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: multiagent
+  #     POSTGRES_PASSWORD: multiagent
+  #     POSTGRES_DB: multiagent
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U multiagent"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+volumes:
+  sqlite_data:
+  # postgres_data:    # uncomment alongside the postgres service

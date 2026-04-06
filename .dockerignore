@@ -1,0 +1,42 @@
+# Version control
+.git
+.gitignore
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info
+dist
+build
+
+# Virtual environments
+.venv
+venv
+env
+
+# Test artifacts
+.pytest_cache
+.coverage
+htmlcov
+
+# Local databases (use the Docker volume instead)
+*.db
+*.sqlite
+
+# Environment files — injected at runtime via env_file / -e flags
+.env
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs / examples (not needed in the image)
+examples/

@@ -1,0 +1,2378 @@
+[
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 0
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 1
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 2
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 3
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 4
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 5
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 6
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 7
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 8
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 9
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 10
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 11
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 12
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 13
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 14
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 15
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 16
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 17
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 18
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 19
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 20
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 21
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 22
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 23
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 24
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 25
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 26
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 27
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 28
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 29
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 30
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 31
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 32
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 33
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 34
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 35
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 36
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 37
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 38
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 39
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 40
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 41
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 42
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 43
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 44
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 45
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 46
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 47
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 48
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 49
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 50
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 51
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 52
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 53
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 54
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 55
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 56
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 57
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 58
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 59
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 60
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 61
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 62
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 63
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 64
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 65
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 66
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 67
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 68
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 69
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 70
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 71
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 72
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 73
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 74
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 75
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 76
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 77
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 78
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 79
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 80
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 81
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 82
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 83
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 84
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 85
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 86
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 87
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 88
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 89
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 90
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 91
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 92
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 93
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 94
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 95
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 96
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 97
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 98
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 99
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 100
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 101
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 102
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 103
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 104
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 105
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 106
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 107
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 108
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 109
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 110
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 111
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 112
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 113
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 114
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 115
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 116
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 117
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 118
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 119
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 120
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 121
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 122
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 123
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 124
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 125
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 126
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 127
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 128
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 129
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 130
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 131
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 132
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 133
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 134
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 135
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 136
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 137
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 138
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 139
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 140
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 141
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 142
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 143
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 144
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 145
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 146
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 147
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 148
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 149
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 150
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 151
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 152
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 153
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 154
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 155
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 156
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 157
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 158
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 159
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 160
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 161
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 162
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 163
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 164
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 165
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 166
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 167
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 168
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 169
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 170
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 171
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 172
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 173
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 174
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 175
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 176
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 177
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 178
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 179
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 180
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 181
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 182
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 183
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 184
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 185
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 186
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 187
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 188
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 189
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 190
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 191
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 192
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 193
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 194
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 195
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 196
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 197
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 198
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 199
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 200
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 201
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 202
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 203
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 204
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 205
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 206
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 207
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 208
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 209
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 210
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 211
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 212
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 213
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 214
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 215
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 216
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 217
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 218
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 219
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 220
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 221
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 222
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 223
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 224
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 225
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 226
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 227
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 228
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 229
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 230
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 231
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 232
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 233
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 234
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 235
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 236
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 237
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 238
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 239
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 240
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 241
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 242
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 243
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 244
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 245
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 246
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 247
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 248
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 249
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 250
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 251
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 252
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 253
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 254
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 255
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 256
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 257
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 258
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 259
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 260
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 261
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 262
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 263
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 264
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 265
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 266
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 267
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 268
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 269
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 270
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 271
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 272
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 273
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 274
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 275
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 276
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 277
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 278
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 279
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 280
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 281
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 282
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 283
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 284
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 285
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 286
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 287
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 288
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 289
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 290
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 291
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 292
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 293
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 294
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 295
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 296
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 297
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 298
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 299
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 300
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 301
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 302
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 303
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 304
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 305
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 306
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 307
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 308
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 309
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 310
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 311
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 312
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 313
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 314
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 315
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 316
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 317
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 318
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 319
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 320
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 321
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 322
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 323
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 324
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 325
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 326
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 327
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 328
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 329
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 330
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 331
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 332
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 333
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 334
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 335
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 336
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 337
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 338
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 339
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 340
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 341
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 342
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 343
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 344
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 345
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 346
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 347
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 348
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 349
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 350
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 351
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 352
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 353
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 354
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 355
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 356
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 357
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 358
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 359
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 360
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 361
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 362
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 363
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 364
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 365
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 366
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 367
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 368
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 369
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 370
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 371
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 372
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 373
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 374
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 375
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 376
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 377
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 378
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 379
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 380
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 381
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 382
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 383
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 384
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. retrieve chunking strategy. RAG embed. embed retrieve. retrieve chunking. chunking strategy. matter production. pipeline langgraph state. langgraph state machines. state machines agent. machines agent handoffs. agent handoffs clean. pipeline langgraph. langgraph state",
+    "source": "profile_report",
+    "section": "topics.top_keywords",
+    "chunk_id": 385
+  },
+  {
+    "text": "RAG embed retrieve. embed retrieve chunking. RAG embed. embed retrieve",
+    "source": "profile_report",
+    "section": "topics.clusters.embed",
+    "chunk_id": 386
+  },
+  {
+    "text": "retrieve chunking strategy. retrieve chunking",
+    "source": "profile_report",
+    "section": "topics.clusters.retrieve",
+    "chunk_id": 387
+  },
+  {
+    "text": "pipeline langgraph state. pipeline langgraph",
+    "source": "profile_report",
+    "section": "topics.clusters.pipeline",
+    "chunk_id": 388
+  },
+  {
+    "text": "langgraph state machines. langgraph state",
+    "source": "profile_report",
+    "section": "topics.clusters.langgraph",
+    "chunk_id": 389
+  },
+  {
+    "text": "Hot take: most teams fine-tune too early. A well-engineered RAG pipeline beats fine-tuned smaller models.",
+    "source": "profile_report",
+    "section": "engagement.top_post.text",
+    "chunk_id": 390
+  },
+  {
+    "text": "RAG scale. autogen framework. autogen framework wins. compared pinecone. compared pinecone weaviate. comparison thread. databases compared. databases compared pinecone. framework wins. framework wins full. full comparison. full comparison thread. langgraph autogen. langgraph autogen framework. pgvector production. pgvector production RAG. pinecone weaviate. pinecone weaviate pgvector. production RAG. production RAG scale. vector databases. vector databases compared. weaviate pgvector. weaviate pgvector production. wins full. wins full comparison",
+    "source": "competitor_report",
+    "section": "content_gaps.gaps",
+    "chunk_id": 391
+  },
+  {
+    "text": "RAG embed. RAG embed retrieve. agent handoffs clean. chunking strategy. embed retrieve. embed retrieve chunking. langgraph state. langgraph state machines. machines agent handoffs. matter production. pipeline langgraph. pipeline langgraph state. retrieve chunking. retrieve chunking strategy. state machines agent",
+    "source": "competitor_report",
+    "section": "content_gaps.unique_to_profile",
+    "chunk_id": 392
+  },
+  {
+    "text": "keyword: vs mentions: 2 total_engagement: 6324.0 avg_engagement_per_mention: 3162.0",
+    "source": "competitor_report",
+    "section": "trending_topics",
+    "chunk_id": 393
+  },
+  {
+    "text": "format: short-text post_count: 1 avg_engagement: 3480.0 total_engagement: 3480.0. format: thread post_count: 1 avg_engagement: 2844.0 total_engagement: 2844.0",
+    "source": "competitor_report",
+    "section": "high_performing_formats",
+    "chunk_id": 394
+  },
+  {
+    "text": "Vector databases compared: Pinecone vs Weaviate vs pgvector for production RAG at scale.",
+    "source": "competitor_report",
+    "section": "competitor_engagement.top_post.text",
+    "chunk_id": 395
+  }
+]
