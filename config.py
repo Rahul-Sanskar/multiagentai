@@ -13,8 +13,9 @@ class Settings(BaseSettings):
 
     database_url: str = "sqlite+aiosqlite:///./dev.db"
 
-    openai_api_key: str = ""
-    default_model: str = "gpt-4o"
+    openai_api_key: str = ""   # kept for backward compat — no longer used
+    groq_api_key: str = ""     # primary LLM backend (free tier available)
+    default_model: str = ""    # optional model override (Groq or Ollama)
 
     secret_key: str = "change-me"
 
