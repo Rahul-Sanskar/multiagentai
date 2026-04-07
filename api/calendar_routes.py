@@ -85,6 +85,18 @@ async def undo_feedback(session_id: str):
         raise HTTPException(status_code=404, detail=str(e))
 
 
+@router.post("/{session_id}/approve")
+async def approve_calendar(session_id: str):
+    """
+    Approve a calendar session.
+    Content generation is blocked until this endpoint is called.
+    """
+    try:
+        return calendar_orchestrator.approve(session_id)
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
 @router.get("/sessions")
 async def list_sessions():
     return calendar_orchestrator.list_sessions()

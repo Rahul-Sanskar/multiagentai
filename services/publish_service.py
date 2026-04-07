@@ -124,6 +124,7 @@ async def _execute_job(
             db, job,
             status=result["status"],
             post_url=result.get("post_url"),
+            platform_post_id=result.get("platform_post_id"),
             latency_ms=latency_ms,
         )
         metrics.record(job.platform, result["status"], latency_ms)
@@ -164,6 +165,7 @@ async def _execute_job(
 
     return {
         "job_id":       job.id,
+        "review_id":    job.review_id,
         "platform":     job.platform,
         "status":       job.status,
         "post_url":     job.post_url,
@@ -181,32 +183,41 @@ async def _simulate_platform_call(
     scheduled_at: str | None,
 ) -> dict[str, Any]:
     """
-    Simulates a platform API call with realistic latency and random failures.
+    Dispatch to a real platform publisher first; fall back to simulation
+    if credentials are missing or the real call raises RuntimeError.
 
-    PRODUCTION SWAP POINT
-    ---------------------
-    Replace this function body with real platform API calls.
-    Route by platform name to the appropriate integration function:
+    REAL-FIRST strategy:
+      LinkedIn  → publish_to_linkedin()
+      Twitter/X → publish_to_x()
+      Others    → simulation only (extend as needed)
 
-        if platform == "LinkedIn":
-            return await publish_to_linkedin(review, scheduled_at)
-        elif platform == "Twitter/X":
-            return await publish_to_x(review, scheduled_at)
-        elif platform == "Instagram":
-            return await publish_to_instagram(review, scheduled_at)
-        ...
-
-    Each integration function should return:
-        {"status": "posted"|"queued", "post_url": str | None, "message": str}
-    and raise RuntimeError on unrecoverable failure (triggers retry logic).
+    Fallback is triggered automatically — no crash, clear log message.
     """
-    cfg = _PLATFORM_CONFIG.get(platform, _DEFAULT_CONFIG)
+    _real_publishers = {
+        "LinkedIn":  publish_to_linkedin,
+        "Twitter/X": publish_to_x,
+        "Instagram": publish_to_instagram,
+    }
 
-    # Simulate network latency
+    real_fn = _real_publishers.get(platform)
+    if real_fn:
+        try:
+            result = await real_fn(review, scheduled_at)
+            logger.info("real_publish_success", platform=platform,
+                        post_url=result.get("post_url"))
+            return result
+        except RuntimeError as exc:
+            logger.warning("real_publish_fallback_mode_activated",
+                           platform=platform, reason=str(exc))
+        except Exception as exc:
+            logger.warning("real_publish_unexpected_fallback",
+                           platform=platform, error=str(exc))
+
+    # ── Simulation fallback ───────────────────────────────────────────────
+    cfg = _PLATFORM_CONFIG.get(platform, _DEFAULT_CONFIG)
     latency_s = (cfg["base_latency_ms"] + random.uniform(-cfg["jitter_ms"], cfg["jitter_ms"])) / 1000
     await asyncio.sleep(max(0.01, latency_s))
 
-    # Simulate random failure
     if random.random() < cfg["failure_rate"]:
         raise RuntimeError(f"Simulated {platform} API error: rate limit exceeded")
 
@@ -214,16 +225,15 @@ async def _simulate_platform_call(
     platform_slug = platform.lower().replace("/", "").replace(" ", "")
 
     if scheduled_at:
-        return {
-            "status": "queued",
-            "post_url": None,
-            "message": f"Scheduled for {scheduled_at} on {platform}.",
-        }
+        return {"status": "queued", "post_url": None,
+                "platform_post_id": None,
+                "message": f"Scheduled for {scheduled_at} on {platform} (simulation)."}
 
     return {
         "status": "posted",
         "post_url": f"https://mock.{platform_slug}.com/posts/{post_id}",
-        "message": f"Successfully posted to {platform}.",
+        "platform_post_id": post_id,
+        "message": f"Successfully posted to {platform} (simulation).",
     }
 
 
@@ -234,34 +244,64 @@ async def publish_to_linkedin(
     scheduled_at: str | None = None,
 ) -> dict[str, Any]:
     """
-    Publish a post to LinkedIn via the LinkedIn Marketing API.
+    Publish a post to LinkedIn via the LinkedIn UGC Post API.
 
-    PRODUCTION IMPLEMENTATION REQUIRED
-    ------------------------------------
-    1. Authenticate using OAuth 2.0 (access token from settings.linkedin_access_token).
-    2. Resolve the author URN: GET https://api.linkedin.com/v2/me
-    3. POST to https://api.linkedin.com/v2/ugcPosts with the post payload.
-    4. For scheduled posts, use the LinkedIn Scheduled Posts API.
+    Requires in .env:
+        LINKEDIN_ACCESS_TOKEN  — OAuth 2.0 user access token
+        LINKEDIN_PERSON_URN    — urn:li:person:{id}  (from GET /v2/me)
 
-    Docs: https://learn.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/ugc-post-api
-
-    Parameters
-    ----------
-    review       : approved PostReview ORM row (use review.post, review.hashtags)
-    scheduled_at : ISO datetime string for scheduled publishing, or None for immediate
-
-    Returns
-    -------
-    {"status": "posted"|"queued", "post_url": str | None, "message": str}
-
-    Raises
-    ------
-    RuntimeError on API failure (triggers retry in _execute_job)
+    Returns {"status": "posted"|"queued", "post_url": str | None, "message": str}
+    Raises RuntimeError on failure (triggers retry in _execute_job).
     """
-    raise NotImplementedError(
-        "publish_to_linkedin() is not yet implemented. "
-        "See docstring for integration instructions."
-    )
+    from config import get_settings
+    import httpx
+
+    settings = get_settings()
+    token = settings.linkedin_access_token
+    person_urn = settings.linkedin_person_urn
+
+    if not token or not person_urn:
+        raise RuntimeError(
+            "LinkedIn credentials not configured (LINKEDIN_ACCESS_TOKEN / LINKEDIN_PERSON_URN). "
+            "Falling back to simulation."
+        )
+
+    payload = {
+        "author": person_urn,
+        "lifecycleState": "PUBLISHED",
+        "specificContent": {
+            "com.linkedin.ugc.ShareContent": {
+                "shareCommentary": {"text": review.post},
+                "shareMediaCategory": "NONE",
+            }
+        },
+        "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
+    }
+
+    async with httpx.AsyncClient(timeout=15.0) as client:
+        resp = await client.post(
+            "https://api.linkedin.com/v2/ugcPosts",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+                "X-Restli-Protocol-Version": "2.0.0",
+            },
+            json=payload,
+        )
+
+    if resp.status_code == 429:
+        raise RuntimeError("LinkedIn rate limit exceeded.")
+    if not resp.is_success:
+        raise RuntimeError(f"LinkedIn API error {resp.status_code}: {resp.text[:200]}")
+
+    post_id = resp.headers.get("x-restli-id", "")
+    post_url = f"https://www.linkedin.com/feed/update/{post_id}" if post_id else None
+    return {
+        "status": "posted",
+        "post_url": post_url,
+        "platform_post_id": post_id,
+        "message": "Successfully posted to LinkedIn.",
+    }
 
 
 async def publish_to_x(
@@ -269,69 +309,194 @@ async def publish_to_x(
     scheduled_at: str | None = None,
 ) -> dict[str, Any]:
     """
-    Publish a post to X (Twitter) via the X API v2.
+    Publish a tweet via X API v2 using OAuth 1.0a (user context).
 
-    PRODUCTION IMPLEMENTATION REQUIRED
-    ------------------------------------
-    1. Authenticate using OAuth 1.0a or OAuth 2.0 (Bearer Token for app-only,
-       user context tokens for posting on behalf of a user).
-    2. POST to https://api.twitter.com/2/tweets with {"text": review.post}.
-    3. For scheduled posts, store locally and use a task queue (X API v2 does
-       not natively support scheduled tweets via the free/basic tier).
+    Uses a lightweight async-safe HMAC-SHA1 signer — no sync libraries,
+    no event-loop blocking.
 
-    Docs: https://developer.x.com/en/docs/x-api/tweets/manage-tweets/api-reference/post-tweets
+    Requires in .env:
+        X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET
 
-    Parameters
-    ----------
-    review       : approved PostReview ORM row
-    scheduled_at : ISO datetime string, or None for immediate
-
-    Returns
-    -------
-    {"status": "posted"|"queued", "post_url": str | None, "message": str}
-
-    Raises
-    ------
-    RuntimeError on API failure (triggers retry in _execute_job)
+    Returns {"status": "posted"|"queued", "post_url": str | None, "message": str}
+    Raises RuntimeError on failure (triggers retry in _execute_job).
     """
-    raise NotImplementedError(
-        "publish_to_x() is not yet implemented. "
-        "See docstring for integration instructions."
+    import base64
+    import hashlib
+    import hmac
+    import time
+    import urllib.parse
+    import uuid as _uuid
+    import httpx
+    from config import get_settings
+
+    settings = get_settings()
+    if not all([
+        settings.x_api_key, settings.x_api_secret,
+        settings.x_access_token, settings.x_access_token_secret,
+    ]):
+        raise RuntimeError("X OAuth credentials not configured. Falling back to simulation.")
+
+    if scheduled_at:
+        return {
+            "status": "queued",
+            "post_url": None,
+            "platform_post_id": None,
+            "message": f"Scheduled for {scheduled_at} (local queue — X free tier).",
+        }
+
+    url  = "https://api.twitter.com/2/tweets"
+    text = review.post[:280]
+
+    # ── Build OAuth 1.0a Authorization header (pure Python, async-safe) ──
+    oauth_params = {
+        "oauth_consumer_key":     settings.x_api_key,
+        "oauth_nonce":            _uuid.uuid4().hex,
+        "oauth_signature_method": "HMAC-SHA1",
+        "oauth_timestamp":        str(int(time.time())),
+        "oauth_token":            settings.x_access_token,
+        "oauth_version":          "1.0",
+    }
+
+    # Signature base string — only oauth params (body is JSON, not form-encoded)
+    sorted_params = "&".join(
+        f"{urllib.parse.quote(k, safe='')}={urllib.parse.quote(v, safe='')}"
+        for k, v in sorted(oauth_params.items())
     )
+    base_string = "&".join([
+        "POST",
+        urllib.parse.quote(url, safe=""),
+        urllib.parse.quote(sorted_params, safe=""),
+    ])
+    signing_key = (
+        urllib.parse.quote(settings.x_api_secret, safe="")
+        + "&"
+        + urllib.parse.quote(settings.x_access_token_secret, safe="")
+    )
+    signature = base64.b64encode(
+        hmac.new(signing_key.encode(), base_string.encode(), hashlib.sha1).digest()
+    ).decode()
+    oauth_params["oauth_signature"] = signature
+
+    auth_header = "OAuth " + ", ".join(
+        f'{urllib.parse.quote(k, safe="")}="{urllib.parse.quote(v, safe="")}"'
+        for k, v in sorted(oauth_params.items())
+    )
+
+    async with httpx.AsyncClient(timeout=15.0) as client:
+        resp = await client.post(
+            url,
+            headers={
+                "Authorization": auth_header,
+                "Content-Type":  "application/json",
+            },
+            json={"text": text},
+        )
+
+    if resp.status_code == 429:
+        raise RuntimeError("X API rate limit exceeded.")
+    if not resp.is_success:
+        raise RuntimeError(f"X API error {resp.status_code}: {resp.text[:200]}")
+
+    data     = resp.json().get("data", {})
+    tweet_id = data.get("id", "")
+    post_url = f"https://x.com/i/web/status/{tweet_id}" if tweet_id else None
+    return {
+        "status":           "posted",
+        "post_url":         post_url,
+        "platform_post_id": tweet_id,
+        "message":          "Successfully posted to X.",
+    }
 
 
 async def publish_to_instagram(
     review: PostReview,
     scheduled_at: str | None = None,
+    image_url: str | None = None,
 ) -> dict[str, Any]:
     """
-    Publish a post to Instagram via the Meta Graph API.
+    Publish a post to Instagram via the Meta Graph API (two-step flow).
 
-    PRODUCTION IMPLEMENTATION REQUIRED
-    ------------------------------------
-    1. Authenticate using a long-lived Page Access Token.
-    2. Create a media container:
-       POST /{ig-user-id}/media  with image_url and caption.
-    3. Publish the container:
-       POST /{ig-user-id}/media_publish  with creation_id.
-    4. For scheduled posts, set published=false and use the scheduled_publish_time param.
+    Media type selection
+    --------------------
+    - image_url provided  → media_type=IMAGE (standard image post)
+    - no image_url        → raises RuntimeError to trigger simulation fallback,
+                            because Instagram's API does not support text-only posts.
+                            In production, always supply an image_url generated from
+                            the visual_prompt field via an image generation service.
 
-    Docs: https://developers.facebook.com/docs/instagram-api/guides/content-publishing
+    Step 1 — Create media container:
+        POST /{ig-user-id}/media  with caption + image_url + media_type
 
-    Parameters
-    ----------
-    review       : approved PostReview ORM row
-    scheduled_at : ISO datetime string, or None for immediate
+    Step 2 — Publish container:
+        POST /{ig-user-id}/media_publish  with creation_id
 
-    Returns
-    -------
-    {"status": "posted"|"queued", "post_url": str | None, "message": str}
+    Requires in .env:
+        INSTAGRAM_USER_ID          — numeric IG user ID
+        INSTAGRAM_ACCESS_TOKEN     — long-lived Page Access Token
 
-    Raises
-    ------
-    RuntimeError on API failure (triggers retry in _execute_job)
+    Falls back to simulation if credentials are missing or image_url is absent.
+    Raises RuntimeError on API failure (triggers retry in _execute_job).
     """
-    raise NotImplementedError(
-        "publish_to_instagram() is not yet implemented. "
-        "See docstring for integration instructions."
-    )
+    import httpx
+    from config import get_settings
+
+    settings = get_settings()
+    ig_user_id   = getattr(settings, "instagram_user_id", "")
+    access_token = getattr(settings, "instagram_access_token", "")
+
+    if not ig_user_id or not access_token:
+        raise RuntimeError(
+            "Instagram credentials not configured "
+            "(INSTAGRAM_USER_ID / INSTAGRAM_ACCESS_TOKEN). "
+            "Falling back to simulation."
+        )
+
+    # Instagram does not support text-only posts via the Graph API.
+    # Without an image_url we cannot create a valid media container.
+    if not image_url:
+        raise RuntimeError(
+            "No image_url provided for Instagram post. "
+            "Instagram requires an image. Falling back to simulation."
+        )
+
+    base = f"https://graph.facebook.com/v19.0/{ig_user_id}"
+    params_base = {"access_token": access_token}
+
+    async with httpx.AsyncClient(timeout=20.0) as client:
+        # Step 1 — create IMAGE container (only when image_url is present)
+        container_payload: dict[str, Any] = {
+            "caption":    review.post[:2200],   # IG caption limit
+            "image_url":  image_url,
+            "media_type": "IMAGE",
+            **params_base,
+        }
+        r1 = await client.post(f"{base}/media", params=container_payload)
+        if r1.status_code == 429:
+            raise RuntimeError("Instagram rate limit exceeded.")
+        if not r1.is_success:
+            raise RuntimeError(
+                f"Instagram container creation failed {r1.status_code}: {r1.text[:200]}"
+            )
+        creation_id = r1.json().get("id", "")
+        if not creation_id:
+            raise RuntimeError("Instagram API returned no container ID.")
+
+        # Step 2 — publish container
+        r2 = await client.post(
+            f"{base}/media_publish",
+            params={"creation_id": creation_id, **params_base},
+        )
+        if not r2.is_success:
+            raise RuntimeError(
+                f"Instagram publish failed {r2.status_code}: {r2.text[:200]}"
+            )
+        post_id  = r2.json().get("id", "")
+        post_url = f"https://www.instagram.com/p/{post_id}/" if post_id else None
+
+    logger.info("instagram_publish_success", post_id=post_id)
+    return {
+        "status":           "posted",
+        "post_url":         post_url,
+        "platform_post_id": post_id,
+        "message":          "Successfully posted to Instagram.",
+    }

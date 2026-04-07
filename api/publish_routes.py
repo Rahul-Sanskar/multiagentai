@@ -1,10 +1,13 @@
 """
 Publish & Metrics routes
 ------------------------
-GET  /api/v1/publish/jobs                   list all jobs (filter by status/review)
+GET  /api/v1/publish/jobs                   list all jobs
 GET  /api/v1/publish/jobs/{job_id}          poll a single job
 GET  /api/v1/publish/metrics                current metrics snapshot
 POST /api/v1/publish/metrics/reset          reset metrics (dev/test only)
+POST /api/v1/publish/impact/{job_id}        fetch + store post-publish metrics now
+GET  /api/v1/publish/performance            analyze performance across review IDs
+GET  /api/v1/publish/suggestions            adaptive calendar suggestions
 """
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -102,3 +105,73 @@ async def get_metrics() -> dict[str, Any]:
 @router.post("/metrics/reset", status_code=204)
 async def reset_metrics():
     metrics.reset()
+
+
+# ── Impact tracker endpoints ──────────────────────────────────────────────────
+
+@router.post("/impact/{job_id}")
+async def fetch_impact(
+    job_id: int,
+    topic: str = Query(default=""),
+    expected_likes: float = Query(default=0.0),
+    expected_comments: float = Query(default=0.0),
+    expected_shares: float = Query(default=0.0),
+    db: AsyncSession = Depends(get_db),
+) -> dict[str, Any]:
+    """
+    Fetch post-publish engagement metrics for a specific publish job right now.
+    Normally called automatically after a delay; use this for manual/testing.
+    """
+    from services.impact_tracker import fetch_and_store
+    from db.models import PublishJob
+
+    job = await db.get(PublishJob, job_id)
+    if not job:
+        raise HTTPException(404, f"PublishJob {job_id} not found.")
+
+    impact = await fetch_and_store(
+        db=db,
+        job_id=job_id,
+        review_id=job.review_id,
+        platform=job.platform,
+        topic=topic,
+        expected={"likes": expected_likes, "comments": expected_comments, "shares": expected_shares},
+    )
+    import json
+    return {
+        "id":              impact.id,
+        "job_id":          job_id,
+        "platform":        impact.platform,
+        "topic":           impact.topic,
+        "likes":           impact.likes,
+        "comments":        impact.comments,
+        "shares":          impact.shares,
+        "impressions":     impact.impressions,
+        "performance_tag": impact.performance_tag,
+        "insight":         json.loads(impact.insight_json or "{}"),
+    }
+
+
+@router.get("/performance")
+async def get_performance(
+    review_ids: str = Query(description="Comma-separated review IDs, e.g. 1,2,3"),
+    db: AsyncSession = Depends(get_db),
+) -> dict[str, Any]:
+    """Aggregate performance analysis across a set of published reviews."""
+    from services.impact_tracker import analyze_performance
+    ids = [int(x.strip()) for x in review_ids.split(",") if x.strip().isdigit()]
+    return await analyze_performance(db, ids)
+
+
+@router.get("/suggestions")
+async def get_suggestions(
+    review_ids: str = Query(description="Comma-separated review IDs"),
+    remaining_topics: str = Query(default="", description="Comma-separated remaining calendar topics"),
+    db: AsyncSession = Depends(get_db),
+) -> dict[str, Any]:
+    """Return adaptive calendar suggestions based on post-publish performance."""
+    from services.impact_tracker import adaptive_suggestions
+    ids = [int(x.strip()) for x in review_ids.split(",") if x.strip().isdigit()]
+    calendar = [{"topic": t.strip(), "day": i + 1}
+                for i, t in enumerate(remaining_topics.split(",")) if t.strip()]
+    return await adaptive_suggestions(db, ids, calendar)

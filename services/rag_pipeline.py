@@ -5,10 +5,15 @@ Ingests profile + competitor reports, chunks them, embeds with
 sentence-transformers, stores in a local FAISS index, and exposes
 retrieve_context(query) for semantic search.
 
+Deduplication: a SHA-256 hash of each report is stored in
+data/rag_hashes.json. If the same report is submitted again,
+ingest() returns 0 immediately without adding duplicate chunks.
+
 All operations are local — no API calls.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from dataclasses import dataclass, field
@@ -24,8 +29,9 @@ from sentence_transformers import SentenceTransformer
 _DEFAULT_MODEL = "all-MiniLM-L6-v2"   # 80 MB, fast, good quality
 _CHUNK_SIZE = 120                       # words per chunk
 _CHUNK_OVERLAP = 20                     # word overlap between chunks
-_INDEX_PATH = Path("data/rag.index")
+_INDEX_PATH  = Path("data/rag.index")
 _CHUNKS_PATH = Path("data/rag_chunks.json")
+_HASHES_PATH = Path("data/rag_hashes.json")   # tracks ingested report hashes
 
 # ── Data classes ──────────────────────────────────────────────────────────────
 
@@ -63,14 +69,28 @@ class RAGPipeline:
         self._dim: int = self._model.get_sentence_embedding_dimension()
         self._index: faiss.IndexFlatIP | None = None   # inner-product on L2-normed vecs = cosine
         self._chunks: list[Chunk] = []
+        self._hashes: set[str] = _load_hashes()   # SHA-256 hashes of already-indexed reports
 
     # ── Ingestion ─────────────────────────────────────────────────────────
 
     def ingest(self, report: dict[str, Any], source: str) -> int:
         """
         Flatten a report dict into text chunks, embed them, and add to the index.
-        Returns the number of chunks added.
+
+        Deduplication: computes a SHA-256 hash of the serialised report.
+        If the same report was already indexed (hash exists in rag_hashes.json),
+        this call is a no-op and returns 0.
+
+        Returns the number of new chunks added (0 if duplicate).
         """
+        report_hash = _hash_report(report)
+        if report_hash in self._hashes:
+            from utils.logger import get_logger as _gl
+            _gl("RAGPipeline").info(
+                "rag_ingest_skipped_duplicate", source=source, hash=report_hash[:12]
+            )
+            return 0
+
         raw_chunks = _flatten_report(report, source)
         if not raw_chunks:
             return 0
@@ -83,12 +103,16 @@ class RAGPipeline:
 
         self._index.add(embeddings)
 
-        # assign sequential ids
         start = len(self._chunks)
         for i, chunk in enumerate(raw_chunks):
             chunk.chunk_id = start + i
 
         self._chunks.extend(raw_chunks)
+
+        # Record hash so this report is never re-indexed
+        self._hashes.add(report_hash)
+        _save_hashes(self._hashes)
+
         return len(raw_chunks)
 
     def ingest_text(self, text: str, source: str, section: str = "raw") -> int:
@@ -263,3 +287,30 @@ def _list_to_text(items: list[Any]) -> str:
         else:
             parts.append(str(item))
     return ". ".join(parts)
+
+
+# ── Hash helpers for deduplication ───────────────────────────────────────────
+
+def _hash_report(report: dict[str, Any]) -> str:
+    """Return a stable SHA-256 hex digest of a report dict."""
+    serialised = json.dumps(report, sort_keys=True, default=str).encode()
+    return hashlib.sha256(serialised).hexdigest()
+
+
+def _load_hashes(path: Path = _HASHES_PATH) -> set[str]:
+    """Load the set of already-indexed report hashes from disk."""
+    if not path.exists():
+        return set()
+    try:
+        return set(json.loads(path.read_text(encoding="utf-8")))
+    except Exception:
+        return set()
+
+
+def _save_hashes(hashes: set[str], path: Path = _HASHES_PATH) -> None:
+    """Persist the set of indexed report hashes to disk."""
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(sorted(hashes), indent=2), encoding="utf-8")
+    except Exception:
+        pass  # non-fatal — worst case is a re-index on next run

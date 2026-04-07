@@ -30,10 +30,12 @@ class CalendarSession:
     def __init__(self, session_id: str, calendar: list[dict[str, Any]]):
         self.session_id = session_id
         self.calendar: list[dict[str, Any]] = calendar
-        self.history: list[dict[str, Any]] = []   # audit trail of every patch round
-        self._undo_stack: list[list[dict[str, Any]]] = []  # snapshots for undo
+        self.history: list[dict[str, Any]] = []
+        self._undo_stack: list[list[dict[str, Any]]] = []
         self.created_at: str = datetime.utcnow().isoformat()
         self.updated_at: str = self.created_at
+        self.approved: bool = False          # approval gate
+        self.approved_at: str | None = None
 
     # ── Mutation ──────────────────────────────────────────────────────────
 
@@ -122,20 +124,24 @@ class CalendarSession:
     def to_dict(self) -> dict[str, Any]:
         """Serialise to a JSON-safe dict (undo stack is not persisted)."""
         return {
-            "session_id": self.session_id,
-            "calendar":   self.calendar,
-            "history":    self.history,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
+            "session_id":  self.session_id,
+            "calendar":    self.calendar,
+            "history":     self.history,
+            "approved":    self.approved,
+            "approved_at": self.approved_at,
+            "created_at":  self.created_at,
+            "updated_at":  self.updated_at,
         }
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "CalendarSession":
         """Restore a CalendarSession from a serialised dict."""
         session = cls(d["session_id"], d["calendar"])
-        session.history    = d.get("history", [])
-        session.created_at = d.get("created_at", datetime.utcnow().isoformat())
-        session.updated_at = d.get("updated_at", session.created_at)
+        session.history     = d.get("history", [])
+        session.approved    = d.get("approved", False)
+        session.approved_at = d.get("approved_at")
+        session.created_at  = d.get("created_at", datetime.utcnow().isoformat())
+        session.updated_at  = d.get("updated_at", session.created_at)
         return session
 
 

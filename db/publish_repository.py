@@ -50,12 +50,15 @@ async def update_job(
     job: PublishJob,
     status: str,
     post_url: str | None = None,
+    platform_post_id: str | None = None,
     error_message: str | None = None,
     latency_ms: float | None = None,
 ) -> PublishJob:
     job.status = status
     if post_url is not None:
         job.post_url = post_url
+    if platform_post_id is not None:
+        job.platform_post_id = platform_post_id
     if error_message is not None:
         job.error_message = error_message
     if latency_ms is not None:

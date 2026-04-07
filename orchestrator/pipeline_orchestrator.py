@@ -210,6 +210,20 @@ class PipelineOrchestrator:
             return result
 
         # ── Stage 5 + 6: Content Creation + Review (per calendar entry) ──
+        # Approval gate: content generation requires calendar approval.
+        # In auto_approve mode the pipeline self-approves the calendar.
+        if auto_approve:
+            self._calendar.approve(result.calendar_session_id)
+            logger.info("stage_complete", stage="calendar_auto_approved",
+                        session_id=result.calendar_session_id)
+        elif not self._calendar.is_approved(result.calendar_session_id):
+            result.stages.append(StageResult(
+                "content_and_review", False,
+                error="Calendar not approved. Call POST /api/v1/calendar/{id}/approve first.",
+            ))
+            logger.warning("content_blocked_calendar_not_approved",
+                           session_id=result.calendar_session_id)
+            return result
         tone = profile_report.get("writing_style", {}).get("tone", "informational")
         profile_keywords = profile_report.get("topics", {}).get("top_keywords", [])
 
@@ -298,6 +312,54 @@ class PipelineOrchestrator:
                 ))
                 logger.info("stage_complete", stage="publish",
                             posted=posted, failed=failed)
+
+                # ── Stage 9: Schedule impact tracking ────────────────────
+                # Persist a ScheduledImpact row for every successful publish
+                # job so metrics are fetched after the configured delay even
+                # if the server restarts before the delay expires.
+                try:
+                    from services.impact_tracker import schedule_impact_fetch
+                    from config import get_settings as _get_settings
+
+                    delay = _get_settings().impact_fetch_delay_seconds
+                    eng   = profile_report.get("engagement", {})
+                    expected_baseline = {
+                        "likes":    float(eng.get("avg_likes", 0)),
+                        "comments": float(eng.get("avg_comments", 0)),
+                        "shares":   float(eng.get("avg_shares", 0)),
+                    }
+                    # Build a review_id lookup from the reviews list
+                    review_by_id = {r["id"]: r for r in reviews}
+
+                    scheduled = 0
+                    for job_result in flat_results:
+                        if job_result.get("status") != "posted":
+                            continue
+                        job_id    = job_result.get("job_id")
+                        review_id = job_result.get("review_id")
+                        platform  = job_result.get("platform", "")
+                        topic     = review_by_id.get(review_id, {}).get("topic", "")
+
+                        if not job_id or not review_id:
+                            continue
+
+                        await schedule_impact_fetch(
+                            db=db,
+                            job_id=job_id,
+                            review_id=review_id,
+                            platform=platform,
+                            topic=topic,
+                            expected=expected_baseline,
+                            delay_seconds=delay,
+                        )
+                        scheduled += 1
+
+                    if scheduled:
+                        logger.info("stage_complete", stage="impact_scheduled",
+                                    count=scheduled, delay_seconds=delay)
+                except Exception as exc:
+                    # Impact scheduling is non-fatal — never block the pipeline
+                    logger.warning("impact_schedule_failed", error=str(exc))
             except Exception as exc:
                 result.stages.append(StageResult("publish", False, error=str(exc)))
                 logger.error("stage_failed", stage="publish", error=str(exc))

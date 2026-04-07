@@ -30,6 +30,14 @@ async def lifespan(app: FastAPI):
     logger.info("startup", env=settings.app_env, version=app.version)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+    # Re-queue any impact fetches that were pending when the server last stopped
+    from services.impact_tracker import recover_pending_fetches
+    from db.session import AsyncSessionLocal
+    recovered = await recover_pending_fetches(AsyncSessionLocal)
+    if recovered:
+        logger.info("startup_impact_recovery", recovered=recovered)
+
     yield
     logger.info("shutdown")
     await engine.dispose()

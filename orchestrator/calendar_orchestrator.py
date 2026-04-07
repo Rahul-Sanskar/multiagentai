@@ -12,7 +12,7 @@ Responsibilities
 """
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 from typing import Any
 
 from agents.calendar_agent import CalendarAgent
@@ -113,11 +113,6 @@ class CalendarOrchestrator:
     def undo(self, session_id: str) -> dict[str, Any]:
         """
         Revert the most recent feedback round for a session.
-
-        Returns
-        -------
-        {"reverted": True, "restored_days": [...]}  on success
-        {"reverted": False, "reason": "..."}         if nothing to undo
         """
         session = calendar_store.get(session_id)
         if not session:
@@ -129,6 +124,32 @@ class CalendarOrchestrator:
             logger.info("calendar_undo", session_id=session_id,
                         restored_days=result.get("restored_days"))
         return result
+
+    def approve(self, session_id: str) -> dict[str, Any]:
+        """
+        Approve a calendar session, enabling content generation.
+
+        Content generation is BLOCKED until this is called.
+        Returns the updated session metadata.
+        """
+        session = calendar_store.get(session_id)
+        if not session:
+            raise KeyError(f"Session '{session_id}' not found.")
+
+        session.approved    = True
+        session.approved_at = datetime.utcnow().isoformat()
+        calendar_store.save_session(session)
+        logger.info("calendar_approved", session_id=session_id)
+        return {
+            "session_id":  session_id,
+            "approved":    True,
+            "approved_at": session.approved_at,
+        }
+
+    def is_approved(self, session_id: str) -> bool:
+        """Return True if the calendar session has been approved."""
+        session = calendar_store.get(session_id)
+        return bool(session and session.approved)
 
     # ── State access ──────────────────────────────────────────────────────
 

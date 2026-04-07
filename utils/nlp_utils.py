@@ -344,3 +344,97 @@ def posting_frequency(posts: list[dict]) -> dict[str, Any]:
         "hour_distribution": dict(sorted(hour_dist.items())),
         "weekday_distribution": dict(weekday_dist),
     }
+
+# ── Content format detection ─────────────────────────────────────────────────
+
+def detect_content_format(text: str) -> str:
+    """
+    Classify a post into one of five content formats using rule-based heuristics.
+
+    Rules (evaluated in priority order)
+    ------------------------------------
+    thread      : 3+ newlines OR contains "🧵" OR ends with "/1" or "(1/"
+    media       : contains image/video URL patterns or media keywords
+    long-form   : word count > 150
+    short-text  : word count <= 30
+    standard    : everything else (31–150 words)
+
+    Returns
+    -------
+    "thread" | "media" | "long-form" | "short-text" | "standard"
+    """
+    if not text:
+        return "short-text"
+
+    text_lower = text.lower()
+    word_count = len(text.split())
+
+    # Thread signals
+    thread_signals = (
+        text.count("\n") >= 3
+        or "🧵" in text
+        or bool(re.search(r"\b1/\d+\b|\(1/", text))
+        or text.strip().endswith("/1")
+        or "thread" in text_lower[:50]
+    )
+    if thread_signals:
+        return "thread"
+
+    # Media signals
+    media_signals = (
+        bool(re.search(r"https?://\S+\.(jpg|jpeg|png|gif|mp4|mov|webp)", text_lower))
+        or any(kw in text_lower for kw in ["[image]", "[video]", "[photo]", "pic.twitter", "youtu.be"])
+    )
+    if media_signals:
+        return "media"
+
+    if word_count > 150:
+        return "long-form"
+    if word_count <= 30:
+        return "short-text"
+    return "standard"
+
+
+def format_distribution(posts: list[dict]) -> dict[str, Any]:
+    """
+    Compute the distribution of content formats across a list of posts,
+    including engagement breakdown per format.
+
+    Returns
+    -------
+    {
+        "counts": {"thread": 3, "short-text": 5, ...},
+        "percentages": {"thread": 30.0, ...},
+        "engagement_by_format": {
+            "thread": {"avg_likes": 120.0, "avg_engagement_rate": 4.2},
+            ...
+        }
+    }
+    """
+    if not posts:
+        return {"counts": {}, "percentages": {}, "engagement_by_format": {}}
+
+    format_posts: dict[str, list[dict]] = {}
+    for p in posts:
+        fmt = p.get("format") or detect_content_format(p.get("text", ""))
+        format_posts.setdefault(fmt, []).append(p)
+
+    total = len(posts)
+    counts = {fmt: len(ps) for fmt, ps in format_posts.items()}
+    percentages = {fmt: round(n / total * 100, 1) for fmt, n in counts.items()}
+
+    engagement_by_format: dict[str, dict] = {}
+    for fmt, ps in format_posts.items():
+        eng = engagement_summary(ps)
+        engagement_by_format[fmt] = {
+            "avg_likes":           eng.get("avg_likes", 0),
+            "avg_comments":        eng.get("avg_comments", 0),
+            "avg_shares":          eng.get("avg_shares", 0),
+            "avg_engagement_rate": eng.get("avg_engagement_rate", 0),
+        }
+
+    return {
+        "counts":               counts,
+        "percentages":          percentages,
+        "engagement_by_format": engagement_by_format,
+    }
