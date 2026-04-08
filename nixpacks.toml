@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python311", "gcc", "libstdcxx5"]
+
+[phases.install]
+cmds = [
+  "pip install --upgrade pip setuptools wheel",
+  "pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cpu --only-binary=:all:",
+  "pip install -r requirements.txt --only-binary=:all:"
+]
+
+[start]
+cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
