@@ -8,12 +8,20 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from services.rag_pipeline import RAGPipeline, RetrievedChunk
+try:
+    from services.rag_pipeline import RAGPipeline, RetrievedChunk
+    _rag = RAGPipeline()
+    _RAG_AVAILABLE = True
+except Exception:
+    _rag = None  # type: ignore
+    _RAG_AVAILABLE = False
 
 router = APIRouter(prefix="/api/v1/rag", tags=["rag"])
 
-# single shared pipeline instance for the lifetime of the process
-_rag = RAGPipeline()
+
+def _require_rag():
+    if not _RAG_AVAILABLE or _rag is None:
+        raise HTTPException(status_code=503, detail="RAG unavailable: faiss/sentence-transformers not installed.")
 
 
 class IngestRequest(BaseModel):
@@ -36,12 +44,14 @@ class ChunkOut(BaseModel):
 
 @router.post("/ingest")
 async def ingest(body: IngestRequest) -> dict[str, Any]:
+    _require_rag()
     n = _rag.ingest(body.report, source=body.source)
     return {"chunks_added": n, "stats": _rag.stats()}
 
 
 @router.post("/query", response_model=list[ChunkOut])
 async def query(body: QueryRequest) -> list[RetrievedChunk]:
+    _require_rag()
     if _rag.chunk_count == 0:
         raise HTTPException(status_code=400, detail="Index is empty — ingest a report first.")
     return _rag.retrieve_context(body.query, top_k=body.top_k, source_filter=body.source_filter)
@@ -49,4 +59,5 @@ async def query(body: QueryRequest) -> list[RetrievedChunk]:
 
 @router.get("/stats")
 async def stats() -> dict[str, Any]:
+    _require_rag()
     return _rag.stats()

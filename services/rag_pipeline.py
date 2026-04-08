@@ -20,9 +20,16 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
+try:
+    import faiss
+    import numpy as np
+    from sentence_transformers import SentenceTransformer
+    _RAG_AVAILABLE = True
+except ImportError:
+    _RAG_AVAILABLE = False
+    faiss = None  # type: ignore
+    np = None     # type: ignore
+    SentenceTransformer = None  # type: ignore
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -55,16 +62,18 @@ class RetrievedChunk:
 class RAGPipeline:
     """
     Lightweight local RAG pipeline backed by FAISS + sentence-transformers.
-
-    Usage
-    -----
-    rag = RAGPipeline()
-    rag.ingest(profile_report, source="profile_report")
-    rag.ingest(competitor_report, source="competitor_report")
-    results = rag.retrieve_context("what topics are trending?")
+    Gracefully disabled when faiss/sentence-transformers are not installed.
     """
 
     def __init__(self, model_name: str = _DEFAULT_MODEL):
+        if not _RAG_AVAILABLE:
+            self._enabled = False
+            self._chunks: list[Chunk] = []
+            self._hashes: set[str] = set()
+            self._dim = 384
+            self._index = None
+            return
+        self._enabled = True
         self._model = SentenceTransformer(model_name)
         self._dim: int = self._model.get_sentence_embedding_dimension()
         self._index: faiss.IndexFlatIP | None = None   # inner-product on L2-normed vecs = cosine
@@ -76,13 +85,10 @@ class RAGPipeline:
     def ingest(self, report: dict[str, Any], source: str) -> int:
         """
         Flatten a report dict into text chunks, embed them, and add to the index.
-
-        Deduplication: computes a SHA-256 hash of the serialised report.
-        If the same report was already indexed (hash exists in rag_hashes.json),
-        this call is a no-op and returns 0.
-
-        Returns the number of new chunks added (0 if duplicate).
+        Returns 0 if RAG dependencies are not installed.
         """
+        if not self._enabled:
+            return 0
         report_hash = _hash_report(report)
         if report_hash in self._hashes:
             from utils.logger import get_logger as _gl
@@ -142,20 +148,7 @@ class RAGPipeline:
         top_k: int = 5,
         source_filter: str | None = None,
     ) -> list[RetrievedChunk]:
-        """
-        Semantic search over the index.
-
-        Parameters
-        ----------
-        query         : natural language question or keyword string
-        top_k         : number of results to return
-        source_filter : restrict results to a specific source label
-
-        Returns
-        -------
-        List of RetrievedChunk sorted by relevance (highest first).
-        """
-        if self._index is None or not self._chunks:
+        if not self._enabled or self._index is None or not self._chunks:
             return []
 
         q_vec = self._embed([query])                    # (1, dim)
