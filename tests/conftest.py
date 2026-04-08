@@ -50,7 +50,27 @@ _configure_test_logging()
 def event_loop():
     """Single event loop for the entire test session."""
     loop = asyncio.new_event_loop()
+
+    # Suppress "Task was destroyed but it is pending" noise from impact tracker
+    # background tasks. These are expected in tests — the 1-hour sleep tasks get
+    # cancelled when the loop closes. Python 3.10 logs this at C-level after the
+    # stream is already closed, causing ValueError noise. Swallow it cleanly.
+    def _silent_exception_handler(loop, context):
+        msg = context.get("message", "")
+        if "Task was destroyed but it is pending" in msg:
+            return  # expected — impact tracker tasks cancelled at teardown
+        loop.default_exception_handler(context)
+
+    loop.set_exception_handler(_silent_exception_handler)
+
     yield loop
+
+    # Cancel pending tasks before closing
+    pending = asyncio.all_tasks(loop)
+    for task in pending:
+        task.cancel()
+    if pending:
+        loop.run_until_complete(asyncio.gather(*pending, return_exceptions=True))
     loop.close()
 
 

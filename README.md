@@ -1,125 +1,95 @@
-# MultiAgentAI — Social Media Content Pipeline
+# Autonomous Social Media Growth Agent
 
-An async, multi-agent AI system that turns raw social media data into a fully reviewed and published content calendar. Built with FastAPI, LangChain, and OpenAI GPT-4o.
+A production-grade multi-agent AI system that turns raw social media data into a fully reviewed and published content calendar. Built with FastAPI, React, FAISS, and Groq (free LLM).
 
 ---
 
-## Overview
+## What it does
 
-MultiAgentAI orchestrates a chain of specialized AI agents to automate the entire content creation workflow:
-
-- Analyze your posting history and extract writing style, topics, and engagement patterns
-- Benchmark against competitor content to surface gaps and opportunities
-- Build a RAG index from both reports for context-aware content generation
-- Generate a multi-platform content calendar
-- Create post copy, hashtags, and image prompts in parallel
-- Store content for human review, then publish on approval
-
-The pipeline can run fully automated (`auto_approve=True`) or with a human-in-the-loop review step between generation and publishing.
+1. Analyzes your posting history — tone, topics, engagement, content formats
+2. Benchmarks against competitor content to find gaps and opportunities
+3. Builds a RAG index from both reports for context-aware generation
+4. Generates a multi-platform content calendar (up to 14 days)
+5. Creates post copy, hashtags, and image prompts via LLM (Groq / Ollama)
+6. Stores content for human review with targeted regeneration
+7. Publishes approved posts to LinkedIn, X, and Instagram
+8. Tracks post-publish engagement metrics and suggests calendar improvements
 
 ---
 
 ## System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        FastAPI Application                       │
-│  /api/v1/*  ·  /docs  ·  /health                                │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                ┌────────────▼────────────┐
-                │   PipelineOrchestrator  │
-                │  (chains all 8 stages)  │
-                └────────────┬────────────┘
-                             │
-        ┌────────────────────┼────────────────────┐
-        │                    │                    │
-┌───────▼───────┐   ┌────────▼────────┐   ┌──────▼──────────┐
-│ ProfileIntel  │   │  Competitor     │   │  RAG Pipeline   │
-│ ligenceAgent  │   │  AnalysisAgent  │   │  (FAISS index)  │
-│               │   │                 │   │                 │
-│ · writing     │   │ · content gaps  │   │ · ingest        │
-│   style       │   │ · trending      │   │ · retrieve      │
-│ · topics      │   │   topics        │   │ · enrich ctx    │
-│ · engagement  │   │ · top formats   │   │                 │
-└───────────────┘   └─────────────────┘   └─────────────────┘
-                             │
-                ┌────────────▼────────────┐
-                │  CalendarOrchestrator   │
-                │  · 14-day schedule      │
-                │  · HITL feedback loop   │
-                └────────────┬────────────┘
-                             │
-                ┌────────────▼────────────┐
-                │ ContentCreationOrch.    │  ← runs in parallel
-                │  ┌──────────────────┐   │
-                │  │   CopyAgent      │   │  GPT-4o + template fallback
-                │  │   HashtagAgent   │   │  GPT-4o + keyword bank fallback
-                │  │   VisualAgent    │   │  GPT-4o + rule-based fallback
-                │  └──────────────────┘   │
-                └────────────┬────────────┘
-                             │
-                ┌────────────▼────────────┐
-                │     ReviewService       │
-                │  · persist as pending   │
-                │  · approve / revise     │
-                └────────────┬────────────┘
-                             │
-                ┌────────────▼────────────┐
-                │     PublishService      │
-                │  · per-platform jobs    │
-                │  · latency metrics      │
-                │  · schedule support     │
-                └─────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                    React Frontend (port 5173)                │
+│  Pipeline · Calendar · Review · Publish                      │
+└────────────────────────┬────────────────────────────────────┘
+                         │ HTTP (proxied)
+┌────────────────────────▼────────────────────────────────────┐
+│                  FastAPI Backend (port 8000)                  │
+│  /api/v1/pipeline/run  ·  /api/v1/reviews  ·  /api/v1/publish│
+└────────────────────────┬────────────────────────────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+┌───────▼──────┐ ┌───────▼──────┐ ┌──────▼──────────┐
+│ Profile +    │ │  RAG Pipeline │ │  Calendar +     │
+│ Competitor   │ │  FAISS index  │ │  HITL feedback  │
+│ Agents       │ │  (persisted)  │ │  (persisted)    │
+└──────────────┘ └───────────────┘ └─────────────────┘
+        │
+┌───────▼──────────────────────────────────────────────┐
+│  Content Creation  (CopyAgent · HashtagAgent · Visual)│
+│  LLM: Groq llama-3.3-70b-versatile → Ollama → template│
+└───────────────────────────┬──────────────────────────┘
+                            │
+              ┌─────────────▼──────────────┐
+              │  Review → Approve → Publish │
+              │  LinkedIn · X · Instagram   │
+              └─────────────┬──────────────┘
+                            │
+              ┌─────────────▼──────────────┐
+              │  Impact Tracker             │
+              │  DB-backed scheduled fetch  │
+              └────────────────────────────┘
 
-External integrations
-  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-  │  OpenAI API  │   │  X (Twitter) │   │  SQLite /    │
-  │  GPT-4o      │   │  API v2      │   │  PostgreSQL  │
-  └──────────────┘   └──────────────┘   └──────────────┘
+Storage: SQLite (dev) · PostgreSQL (prod) · FAISS index on disk
 ```
 
 ---
 
-## Features
+## Tech Stack
 
-**Agents**
-- `ProfileIntelligenceAgent` — writing style detection, topic extraction (bigrams/trigrams), engagement analytics, posting frequency
-- `CompetitorAnalysisAgent` — content gap analysis, trending topic detection, format benchmarking
-- `CopyAgent` — LLM-generated post copy per platform and tone, template fallback
-- `HashtagAgent` — 8–12 niche hashtags via LLM, keyword-bank fallback
-- `VisualAgent` — detailed Midjourney/DALL-E image prompts, rule-based fallback
-
-**Pipeline**
-- 8-stage orchestrated pipeline with per-stage error isolation
-- RAG-enriched content context using FAISS vector search
-- Human-in-the-loop calendar feedback with audit trail
-- Auto-approve mode for fully automated runs
-- Structured publish jobs with latency tracking and per-platform metrics
-
-**API**
-- RESTful FastAPI with OpenAPI docs at `/docs`
-- Request ID middleware and structured JSON logging
-- Consistent `ApiResponse[T]` envelope on all endpoints
-- Health check at `/health`
-
-**Data**
-- X (Twitter) API v2 integration with `USE_REAL_API` toggle and mock fallback
-- Async SQLAlchemy with SQLite (dev) or PostgreSQL (prod)
+| Layer | Technology |
+|---|---|
+| Backend | FastAPI, SQLAlchemy async, Pydantic v2 |
+| LLM | Groq API (llama-3.3-70b-versatile) → Ollama fallback → templates |
+| RAG | FAISS + sentence-transformers (all-MiniLM-L6-v2) |
+| Frontend | React 18, TypeScript, Tailwind CSS, Vite |
+| Database | SQLite (dev) / PostgreSQL (prod) via aiosqlite / asyncpg |
+| Publishing | X API v2 (OAuth 1.0a), LinkedIn UGC API, Meta Graph API |
+| Data ingestion | X API v2 Bearer Token (read-only) |
 
 ---
 
 ## Setup
 
-**Requirements:** Python 3.10+
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
 
-### 1. Clone and install dependencies
+### 1. Clone and install backend
 
 ```bash
-git clone https://github.com/your-org/multiagentai.git
+git clone https://github.com/Rahul-Sanskarchore/multiagentai.git
 cd multiagentai
+
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
 pip install -r requirements.txt
 ```
 
@@ -129,167 +99,206 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Edit `.env` with your credentials:
+Open `.env` and fill in at minimum:
 
 ```env
-OPENAI_API_KEY=sk-...            # required for LLM generation
-DEFAULT_MODEL=gpt-4o
+DATABASE_URL=sqlite+aiosqlite:///./dev.db
+SECRET_KEY=any-random-string
 
-DATABASE_URL=sqlite+aiosqlite:///./dev.db   # or PostgreSQL URL
+# LLM — get a free key at https://console.groq.com
+GROQ_API_KEY=gsk_...
 
-X_BEARER_TOKEN=                  # optional — leave blank to use mock data
-SECRET_KEY=change-me-in-production
+# X API (optional — for real data ingestion)
+X_BEARER_TOKEN=...
+X_API_KEY=...
+X_API_SECRET=...
+X_ACCESS_TOKEN=...
+X_ACCESS_TOKEN_SECRET=...
+
+# LinkedIn (optional — for real publishing)
+LINKEDIN_ACCESS_TOKEN=...
+LINKEDIN_PERSON_URN=urn:li:person:...
 ```
 
-### 3. Start the server
+Without `GROQ_API_KEY` the system uses template fallbacks. Without X/LinkedIn credentials it uses mock data and simulation.
+
+### 3. Install frontend
 
 ```bash
-uvicorn main:app --reload --port 8000
+cd frontend
+npm install
+cd ..
 ```
 
-API docs available at `http://localhost:8000/docs`
+---
+
+## Running
+
+### Backend (Terminal 1)
+
+```bash
+python -m uvicorn main:app --reload --port 8000
+```
+
+- API: `http://localhost:8000`
+- Swagger docs: `http://localhost:8000/docs`
+
+### Frontend (Terminal 2)
+
+```bash
+cd frontend
+npm run dev
+```
+
+- UI: `http://localhost:5173`
+
+### Docker (alternative — one command)
+
+```bash
+cp .env.example .env   # fill in GROQ_API_KEY at minimum
+docker-compose up --build
+```
+
+API at `http://localhost:8000`, no frontend container (run separately).
+
+---
+
+## Using the UI
+
+### Pipeline tab
+1. Enter your posts (one per line) — or enter an X username to fetch real tweets
+2. Enter competitor posts
+3. Select platforms and number of days
+4. Click **Run Pipeline**
+5. All 8 stages run automatically — results appear below
+
+### Calendar tab
+Shows the generated 14-day content calendar after a pipeline run.
+
+### Review tab
+- Filter by status: pending / approved / revision
+- Expand any card to see full copy, hashtags, and visual prompt
+- Click **Approve**, **Rewrite copy**, **New hashtags**, or **New visual**
+
+### Publish tab
+- Lists all approved reviews
+- Select target platforms per post
+- Click **Publish** — real API if credentials are set, simulation otherwise
+- Job status (posted / queued / failed) shown with URLs
+
+---
+
+## E2E Demo (no server needed)
+
+```bash
+python examples/e2e_test.py
+```
+
+Runs all 8 pipeline stages against a built-in AI engineer mock dataset. With `GROQ_API_KEY` set, content is real LLM output. Takes ~30–60 seconds.
+
+Expected output:
+```
+All steps passed. Pipeline is healthy.
+```
 
 ---
 
 ## API Usage
 
-All endpoints are prefixed with `/api/v1`. Responses use the envelope:
+All endpoints are at `http://localhost:8000/api/v1`.
 
-```json
-{ "success": true, "data": { ... }, "request_id": "...", "timestamp": "..." }
-```
-
-### Analyze a profile
+### Run full pipeline
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/analyze-profile \
+curl -s -X POST http://localhost:8000/api/v1/pipeline/run \
   -H "Content-Type: application/json" \
   -d '{
-    "posts": [
-      {
-        "text": "5 tips to grow your business on social media. Thread below",
-        "timestamp": "2024-01-03T11:00:00",
-        "likes": 340, "comments": 42, "shares": 88, "views": 5000
-      }
-    ]
-  }'
+    "my_posts": [
+      {"text": "Just shipped a LangGraph pipeline.", "likes": 800, "timestamp": "2024-03-01T09:00:00Z"}
+    ],
+    "competitor_posts": [
+      {"text": "LangGraph vs AutoGen: which wins?", "likes": 1800, "timestamp": "2024-03-02T09:00:00Z"}
+    ],
+    "x_username": "karpathy",
+    "start_date": "2024-05-01",
+    "days": 3,
+    "platforms": ["LinkedIn"],
+    "auto_approve": true
+  }' | python -m json.tool
 ```
 
-### Generate a content calendar
+`x_username` is optional. If provided and `X_BEARER_TOKEN` is set, real tweets are fetched and used instead of `my_posts`. Falls back to `my_posts` on any API failure.
+
+### Generate content
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/generate-calendar \
+curl -s -X POST http://localhost:8000/api/v1/generate-content \
   -H "Content-Type: application/json" \
   -d '{
-    "profile_report": { ... },
-    "competitor_report": { ... },
-    "start_date": "2024-02-01",
-    "days": 7
-  }'
-```
-
-### Generate post content
-
-```bash
-curl -X POST http://localhost:8000/api/v1/generate-content \
-  -H "Content-Type: application/json" \
-  -d '{
-    "topic": "AI productivity tools",
+    "topic": "building multi-agent systems with LangGraph",
     "platform": "LinkedIn",
     "tone": "informational",
-    "keywords": ["automation", "LLM", "workflow"]
-  }'
-```
-
-### Run the full pipeline
-
-```bash
-curl -X POST http://localhost:8000/api/v1/pipeline/run \
-  -H "Content-Type: application/json" \
-  -d '{
-    "my_posts": [ { "text": "...", "likes": 120, "timestamp": "2024-01-01T09:00:00" } ],
-    "competitor_posts": [ { "text": "...", "likes": 500, "timestamp": "2024-01-02T10:00:00" } ],
-    "start_date": "2024-02-01",
-    "days": 5,
-    "platforms": ["Instagram", "LinkedIn"],
-    "auto_approve": true
-  }'
+    "keywords": ["LangGraph", "RAG", "multi-agent"]
+  }' | python -m json.tool
 ```
 
 ### Review and publish
 
 ```bash
-# List pending reviews
+# List reviews
 curl http://localhost:8000/api/v1/reviews
 
-# Approve a review
-curl -X POST http://localhost:8000/api/v1/reviews/1/approve
+# Approve
+curl -X PATCH http://localhost:8000/api/v1/reviews/1/status \
+  -H "Content-Type: application/json" \
+  -d '{"status": "approved"}'
 
-# Publish an approved review
+# Publish
 curl -X POST http://localhost:8000/api/v1/publish \
   -H "Content-Type: application/json" \
-  -d '{ "review_id": 1, "platforms": ["Instagram", "LinkedIn"] }'
-```
-
-### RAG index
-
-```bash
-# Ingest a report
-curl -X POST http://localhost:8000/api/v1/rag/ingest \
-  -H "Content-Type: application/json" \
-  -d '{ "report": { ... }, "source": "profile_report" }'
-
-# Query for context
-curl -X POST http://localhost:8000/api/v1/rag/query \
-  -H "Content-Type: application/json" \
-  -d '{ "query": "high engagement content formats", "top_k": 5 }'
+  -d '{"review_id": 1, "platforms": ["LinkedIn"]}'
 ```
 
 ---
 
-## Demo
+## LLM Configuration
 
-Run the full pipeline locally without starting the server:
+Priority chain — first available backend wins:
+
+| Priority | Backend | Config |
+|---|---|---|
+| 1 | Groq | `GROQ_API_KEY=gsk_...` in `.env` — free at [console.groq.com](https://console.groq.com) |
+| 2 | Ollama | Run `ollama serve` + `ollama pull llama3` locally — fully free |
+| 3 | Templates | Always available — deterministic fallback, no AI |
+
+Model used: `llama-3.3-70b-versatile` (Groq) / `llama3` (Ollama).
+
+---
+
+## X API Credentials
+
+Get them at [developer.twitter.com](https://developer.twitter.com):
+
+| Key | Where to find |
+|---|---|
+| `X_BEARER_TOKEN` | App → Keys and Tokens → Bearer Token |
+| `X_API_KEY` | App → Keys and Tokens → API Key |
+| `X_API_SECRET` | App → Keys and Tokens → API Key Secret |
+| `X_ACCESS_TOKEN` | App → Keys and Tokens → Access Token (needs Read+Write) |
+| `X_ACCESS_TOKEN_SECRET` | App → Keys and Tokens → Access Token Secret |
+
+For publishing, set app permissions to **Read and Write** then regenerate the access tokens.
+
+---
+
+## Running Tests
 
 ```bash
-python examples/run_agents.py
-```
+# Fast unit tests (no coverage)
+python -m pytest tests/ -q --no-cov
 
-This executes all 8 stages against sample data and prints a structured summary:
-
-```
-== STAGE RESULTS ==
-  ✓ profile_analysis
-  ✓ competitor_analysis
-  ✓ rag_ingestion
-  ✓ calendar_generation
-  ✓ content_and_review
-  ✓ auto_approve
-  ✓ publish
-  calendar entries : 10
-  reviews created  : 10
-  publish jobs     : 10 posted / 0 failed
-
-== CALENDAR ==
-  Day  1 | 2024-02-01 | Instagram    | short-form video  | 09:00 | AI productivity tools
-  Day  2 | 2024-02-02 | LinkedIn     | thought leadership| 11:00 | multi-agent systems
-  ...
-
-== PUBLISH METRICS ==
-  Global  attempts=20  success=20  failed=0  success_rate=100%  avg_latency=12ms
-```
-
-To test with real X (Twitter) data, set your bearer token in `.env` and update `USE_REAL_API` in `services/x_api_client.py`:
-
-```python
-USE_REAL_API = True
-```
-
-Then fetch posts directly:
-
-```python
-from services.x_api_client import fetch_user_posts
-posts = await fetch_user_posts("username", max_results=15)
+# With coverage report (enforced ≥ 70%)
+python -m pytest tests/
 ```
 
 ---
@@ -297,28 +306,37 @@ posts = await fetch_user_posts("username", max_results=15)
 ## Project Structure
 
 ```
-├── agents/          # Individual AI agents (copy, hashtag, visual, profile, etc.)
-├── api/             # FastAPI routers and request/response schemas
-├── db/              # SQLAlchemy models, session, and repositories
-├── orchestrator/    # Pipeline, calendar, and content creation orchestrators
-├── services/        # LLM service, RAG pipeline, X API client, publish service
-├── utils/           # NLP utilities, logging, retry, validators
-├── examples/        # End-to-end demo script
-├── tests/           # Pytest test suite
-├── main.py          # FastAPI application entry point
-└── config.py        # Pydantic settings (loaded from .env)
+├── agents/          — AI agents (copy, hashtag, visual, profile, competitor)
+├── api/             — FastAPI routers and schemas
+├── db/              — SQLAlchemy models and repositories
+├── orchestrator/    — Pipeline, calendar, content orchestrators
+├── services/        — LLM, RAG, X API, publish, metrics, impact tracker
+├── utils/           — NLP, logging, retry, validators
+├── frontend/        — React + TypeScript + Tailwind UI
+├── examples/        — E2E demo and run scripts
+├── tests/           — 128 pytest tests
+├── main.py          — FastAPI app entry point
+├── config.py        — Pydantic settings
+├── Dockerfile
+└── docker-compose.yml
 ```
 
 ---
 
-## Running Tests
+## Environment Variables Reference
 
-```bash
-pytest tests/ -v
-```
-
-With coverage:
-
-```bash
-pytest tests/ --cov=. --cov-report=term-missing
-```
+| Variable | Required | Description |
+|---|---|---|
+| `DATABASE_URL` | Yes | `sqlite+aiosqlite:///./dev.db` for local |
+| `SECRET_KEY` | Yes | Any random string |
+| `GROQ_API_KEY` | Recommended | Free LLM — [console.groq.com](https://console.groq.com) |
+| `X_BEARER_TOKEN` | Optional | Read tweets from X |
+| `X_API_KEY` | Optional | Publish to X |
+| `X_API_SECRET` | Optional | Publish to X |
+| `X_ACCESS_TOKEN` | Optional | Publish to X |
+| `X_ACCESS_TOKEN_SECRET` | Optional | Publish to X |
+| `LINKEDIN_ACCESS_TOKEN` | Optional | Publish to LinkedIn |
+| `LINKEDIN_PERSON_URN` | Optional | LinkedIn author URN |
+| `INSTAGRAM_USER_ID` | Optional | Publish to Instagram |
+| `INSTAGRAM_ACCESS_TOKEN` | Optional | Publish to Instagram |
+| `IMPACT_FETCH_DELAY_SECONDS` | Optional | Default 3600 (1 hour) |

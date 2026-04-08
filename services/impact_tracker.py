@@ -83,7 +83,11 @@ async def _run_scheduled(scheduled_id: int, delay_seconds: int) -> None:
     """
     from db.session import AsyncSessionLocal
 
-    await asyncio.sleep(delay_seconds)
+    try:
+        await asyncio.sleep(delay_seconds)
+    except asyncio.CancelledError:
+        # Task was cancelled (e.g. test teardown) — exit cleanly, no error
+        return
 
     async with AsyncSessionLocal() as db:
         try:
