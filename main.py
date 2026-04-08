@@ -25,18 +25,55 @@ setup_logging()
 logger = get_logger("main")
 
 
+def _ensure_nltk_data() -> None:
+    """
+    Download required NLTK packages at runtime if they are not already present.
+
+    - Uses /app/nltk_data inside the container (writable, predictable path).
+    - Falls back to ~/nltk_data if /app is not writable.
+    - Adds the chosen directory to nltk.data.path so lookups work immediately.
+    - Never raises — a download failure logs a warning but does not crash startup.
+      The NLP utils degrade gracefully when data is missing.
+    """
+    import nltk
+    import os
+
+    # Prefer /app/nltk_data (always writable in Railway/Docker containers).
+    # Fall back to the home directory for local dev.
+    candidates = ["/app/nltk_data", os.path.join(os.path.expanduser("~"), "nltk_data")]
+    nltk_dir = next((d for d in candidates if os.access(os.path.dirname(d) or "/", os.W_OK)), candidates[-1])
+
+    os.makedirs(nltk_dir, exist_ok=True)
+
+    # Prepend so this directory is checked first on every nltk.data.find() call.
+    if nltk_dir not in nltk.data.path:
+        nltk.data.path.insert(0, nltk_dir)
+
+    packages = [
+        ("punkt",     "tokenizers/punkt"),
+        ("punkt_tab", "tokenizers/punkt_tab"),
+        ("stopwords", "corpora/stopwords"),
+    ]
+
+    for pkg, resource_path in packages:
+        try:
+            nltk.data.find(resource_path)
+            logger.info("nltk_data_ok", package=pkg)
+        except LookupError:
+            try:
+                nltk.download(pkg, download_dir=nltk_dir, quiet=True, raise_on_error=True)
+                logger.info("nltk_data_downloaded", package=pkg, dir=nltk_dir)
+            except Exception as exc:
+                # Network unavailable or quota exceeded — log and continue.
+                # NLP features will fall back to basic tokenisation.
+                logger.warning("nltk_data_download_failed", package=pkg, error=str(exc))
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("startup", env=settings.app_env, version=app.version)
 
-    # Download NLTK data if not already present (needed on Render's ephemeral FS)
-    import nltk, os
-    nltk_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
-    for pkg, path in [("punkt", "tokenizers/punkt"), ("punkt_tab", "tokenizers/punkt_tab"), ("stopwords", "corpora/stopwords")]:
-        try:
-            nltk.data.find(path)
-        except LookupError:
-            nltk.download(pkg, quiet=True, download_dir=nltk_dir)
+    _ensure_nltk_data()
 
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)

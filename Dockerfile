@@ -26,7 +26,7 @@ RUN pip install --no-cache-dir --only-binary=:all: -r requirements.txt
 # Copied last so code changes don't invalidate the dependency layers above.
 COPY . .
 
-RUN mkdir -p /app/data
+RUN mkdir -p /app/data /app/nltk_data
 
 EXPOSE 8000
 
