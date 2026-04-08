@@ -1,42 +1,43 @@
-# Version control
-.git
-.gitignore
-
-# Python cache
-__pycache__
+# Python
+__pycache__/
 *.pyc
 *.pyo
-*.pyd
 .Python
-*.egg-info
-dist
-build
+*.egg-info/
 
 # Virtual environments
-.venv
-venv
-env
+.venv/
+venv/
+env/
 
 # Test artifacts
-.pytest_cache
+.pytest_cache/
 .coverage
-htmlcov
+htmlcov/
 
-# Local databases (use the Docker volume instead)
+# Local databases and runtime data
 *.db
 *.sqlite
+data/
 
-# Environment files — injected at runtime via env_file / -e flags
+# Environment files
 .env
 
+# Frontend (not needed in backend image)
+frontend/
+
 # IDE
-.vscode
-.idea
-*.swp
+.vscode/
+.idea/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Docs / examples (not needed in the image)
+# Git
+.git/
+.gitignore
+
+# Docs
+*.md
 examples/
