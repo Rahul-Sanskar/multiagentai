@@ -26,7 +26,7 @@ logger = get_logger("LLMService")
 # ── Backend endpoints ─────────────────────────────────────────────────────────
 
 _GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
-_GROQ_MODEL = "llama3-70b-8192"
+_GROQ_MODEL = "llama-3.3-70b-versatile"
 
 _OLLAMA_URL   = "http://localhost:11434/api/chat"
 _OLLAMA_MODEL = "llama3"

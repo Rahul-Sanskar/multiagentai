@@ -448,9 +448,14 @@ async def step2_competitor(profile_report: dict, competitor_posts: list[dict]) -
 # ── Step 3: RAG Pipeline ──────────────────────────────────────────────────────
 
 async def step3_rag(profile_report: dict, competitor_report: dict) -> Any:
-    from services.rag_pipeline import RAGPipeline
+    from services.rag_pipeline import RAGPipeline, _HASHES_PATH
+    from pathlib import Path
 
     log_step("Step 3 of 8  —  RAG Pipeline  (ingest + semantic retrieval)")
+
+    # Clear stale hashes so the e2e test always re-indexes fresh data
+    Path(_HASHES_PATH).unlink(missing_ok=True)
+
     rag = RAGPipeline()
     n1 = rag.ingest(profile_report, source="profile_report")
     n2 = rag.ingest(competitor_report, source="competitor_report")

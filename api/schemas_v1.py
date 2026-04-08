@@ -253,10 +253,17 @@ class PublishResponse(BaseModel):
 # ── /pipeline/run ─────────────────────────────────────────────────────────────
 
 class PipelineRunRequest(BaseModel):
-    my_posts: list[PostInput] = Field(..., min_length=1, max_length=500,
-                                      description="Your own social media posts")
+    my_posts: list[PostInput] = Field(
+        default_factory=list,
+        max_length=500,
+        description="Your own social media posts. Ignored if x_username is provided and X_BEARER_TOKEN is set.",
+    )
     competitor_posts: list[PostInput] = Field(..., min_length=1, max_length=500,
                                               description="Competitor posts to analyse")
+    x_username: str | None = Field(
+        default=None,
+        description="X (Twitter) handle to fetch real posts from (without @). Requires X_BEARER_TOKEN in .env.",
+    )
     start_date: str | None = Field(default=None, description="Calendar start date (YYYY-MM-DD)")
     days: int = Field(default=14, ge=1, le=14)
     platforms: list[Literal["Instagram", "LinkedIn", "Twitter/X", "TikTok", "YouTube"]] = Field(
@@ -297,3 +304,5 @@ class PipelineRunResponse(BaseModel):
     publish_jobs: int
     stages: list[PipelineStageResult]
     rag_stats: dict[str, Any]
+    calendar: list[dict[str, Any]] = Field(default_factory=list)
+    my_posts_source: str = "manual"   # "real_x_api" | "mock" | "manual"

@@ -283,22 +283,21 @@ class PipelineOrchestrator:
         if auto_approve:
             try:
                 from db.review_repository import get as get_review_row
-                publish_tasks = []
-                for r in reviews:
-                    review_row = await get_review_row(db, r["id"])
-                    if review_row and review_row.status == "approved":
-                        publish_tasks.append(
-                            publish_jobs(db, review_row, platforms)
-                        )
 
-                all_publish = await asyncio.gather(*publish_tasks, return_exceptions=True)
                 flat_results: list[dict[str, Any]] = []
                 pub_errors: list[str] = []
-                for batch in all_publish:
-                    if isinstance(batch, Exception):
-                        pub_errors.append(str(batch))
-                    else:
+
+                # Run sequentially — asyncio.gather on a shared session causes
+                # "Session is already flushing" under concurrent writes.
+                for r in reviews:
+                    review_row = await get_review_row(db, r["id"])
+                    if not review_row or review_row.status != "approved":
+                        continue
+                    try:
+                        batch = await publish_jobs(db, review_row, platforms)
                         flat_results.extend(batch)
+                    except Exception as exc:
+                        pub_errors.append(str(exc))
 
                 await db.flush()
                 result.publish_results = flat_results

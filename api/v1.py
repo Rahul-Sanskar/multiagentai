@@ -300,6 +300,53 @@ async def run_pipeline(
     my_posts = [p.model_dump() for p in body.my_posts]
     competitor_posts = [p.model_dump() for p in body.competitor_posts]
 
+    # ── Real X data ingestion ─────────────────────────────────────────────
+    # Priority: real X API → manual my_posts → built-in mock dataset
+    # Never raises — always produces usable posts for the pipeline.
+    my_posts_source = "manual"
+    if body.x_username:
+        from services.x_api_client import fetch_user_posts, USE_REAL_API, _MOCK_POSTS
+        from config import get_settings as _gs
+        token = _gs().x_bearer_token.strip()
+        if token and USE_REAL_API:
+            try:
+                fetched = await fetch_user_posts(
+                    username=body.x_username.lstrip("@"),
+                    max_results=10,
+                )
+                if fetched and fetched[0].get("source") == "x_api":
+                    my_posts = fetched
+                    my_posts_source = "real_x_api"
+                    logger.info("x_data_ingestion_success",
+                                username=body.x_username, count=len(my_posts))
+                else:
+                    # API returned mock (depleted credits / rate limit)
+                    # Use whatever the caller provided, or fall back to built-in mock
+                    if not my_posts:
+                        my_posts = list(_MOCK_POSTS)
+                    my_posts_source = "mock"
+                    logger.warning("x_data_ingestion_fallback",
+                                   username=body.x_username,
+                                   reason="API returned mock data — using fallback posts")
+            except Exception as exc:
+                if not my_posts:
+                    my_posts = list(_MOCK_POSTS)
+                my_posts_source = "mock"
+                logger.warning("x_data_ingestion_error",
+                               username=body.x_username, error=str(exc),
+                               reason="Falling back to mock posts")
+        else:
+            logger.info("x_data_ingestion_skipped",
+                        reason="X_BEARER_TOKEN not set or USE_REAL_API=False")
+
+    # Final safety net — use built-in mock if still empty
+    if not my_posts:
+        from services.x_api_client import _MOCK_POSTS
+        my_posts = list(_MOCK_POSTS)
+        my_posts_source = "mock"
+        logger.warning("my_posts_empty_using_mock",
+                       reason="No posts provided and X ingestion unavailable")
+
     result = await pipeline_orchestrator.run(
         my_posts=my_posts,
         competitor_posts=competitor_posts,
@@ -318,6 +365,8 @@ async def run_pipeline(
         publish_jobs=len(result.publish_results),
         stages=[PipelineStageResult(**s.__dict__) for s in result.stages],
         rag_stats=result.rag_stats,
+        calendar=result.calendar,
+        my_posts_source=my_posts_source,
     )
 
     logger.info(
