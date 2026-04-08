@@ -1,10 +1,14 @@
 import axios from "axios";
 import type { PipelineResponse, Review, PublishResult } from "../types";
 
-// In production (Netlify) VITE_API_BASE_URL points to the Render backend.
-// In dev, it's empty so Vite's proxy forwards /api → localhost:8000.
+// Priority:
+// 1. VITE_API_BASE_URL env var — explicit override (Netlify → Render, etc.)
+// 2. window.location.origin  — works on Replit and any same-host deployment
+// 3. Bare /api/v1             — fallback for Vite dev proxy (local dev)
 const BASE = import.meta.env.VITE_API_BASE_URL
   ? `${import.meta.env.VITE_API_BASE_URL}/api/v1`
+  : typeof window !== "undefined"
+  ? `${window.location.origin}/api/v1`
   : "/api/v1";
 
 const http = axios.create({ baseURL: BASE });
