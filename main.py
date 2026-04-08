@@ -28,6 +28,16 @@ logger = get_logger("main")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("startup", env=settings.app_env, version=app.version)
+
+    # Download NLTK data if not already present (needed on Render's ephemeral FS)
+    import nltk, os
+    nltk_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
+    for pkg, path in [("punkt", "tokenizers/punkt"), ("punkt_tab", "tokenizers/punkt_tab"), ("stopwords", "corpora/stopwords")]:
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            nltk.download(pkg, quiet=True, download_dir=nltk_dir)
+
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
@@ -58,9 +68,10 @@ app.add_middleware(AccessLogMiddleware)
 app.add_middleware(RequestIDMiddleware)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True,
 )
 
 # ── Error handlers ────────────────────────────────────────────────────────────

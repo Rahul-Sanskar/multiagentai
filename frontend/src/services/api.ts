@@ -1,7 +1,13 @@
 import axios from "axios";
 import type { PipelineResponse, Review, PublishResult } from "../types";
 
-const http = axios.create({ baseURL: "/api/v1" });
+// In production (Netlify) VITE_API_BASE_URL points to the Render backend.
+// In dev, it's empty so Vite's proxy forwards /api → localhost:8000.
+const BASE = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/api/v1`
+  : "/api/v1";
+
+const http = axios.create({ baseURL: BASE });
 
 export async function runPipeline(payload: {
   my_posts: { text: string }[];

@@ -11,6 +11,17 @@ class Settings(BaseSettings):
     api_host: str = "0.0.0.0"
     api_port: int = 8000
 
+    # CORS — comma-separated list of allowed origins.
+    # Render/Netlify: set ALLOWED_ORIGINS=https://your-app.netlify.app
+    # Dev: defaults to allow all so local frontend works without config.
+    allowed_origins_str: str = "*"
+
+    @property
+    def allowed_origins(self) -> list[str]:
+        if self.allowed_origins_str.strip() == "*":
+            return ["*"]
+        return [o.strip() for o in self.allowed_origins_str.split(",") if o.strip()]
+
     database_url: str = "sqlite+aiosqlite:///./dev.db"
 
     openai_api_key: str = ""   # kept for backward compat — no longer used
@@ -28,16 +39,20 @@ class Settings(BaseSettings):
 
     # LinkedIn API
     linkedin_access_token: str = ""
-    linkedin_person_urn: str = ""   # urn:li:person:{id} — from GET /v2/me
+    linkedin_person_urn: str = ""
 
     # Instagram / Meta Graph API
-    instagram_user_id: str = ""        # numeric IG Business/Creator account ID
-    instagram_access_token: str = ""   # long-lived Page Access Token
+    instagram_user_id: str = ""
+    instagram_access_token: str = ""
 
     # Impact tracker — delay in seconds before fetching post metrics
-    impact_fetch_delay_seconds: int = 3600   # default 1 hour
+    impact_fetch_delay_seconds: int = 3600
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 @lru_cache

@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: multiagentai-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./prod.db
+      - key: GROQ_API_KEY
+        sync: false
+      - key: X_BEARER_TOKEN
+        sync: false
+      - key: X_API_KEY
+        sync: false
+      - key: X_API_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: IMPACT_FETCH_DELAY_SECONDS
+        value: "3600"
