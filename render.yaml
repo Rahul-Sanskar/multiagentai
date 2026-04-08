@@ -4,13 +4,8 @@ services:
     env: python
     region: oregon
     plan: free
-    # Install CPU-only torch first (avoids 2 GB CUDA wheel).
-    # Then install everything else with --only-binary=:all: so pip never
-    # attempts a source/Cython build — if a wheel doesn't exist for the
-    # Python version, pip fails fast with a clear error instead of a
-    # cryptic Cython compile failure.
     buildCommand: >
-      pip install --upgrade pip &&
+      pip install --upgrade pip setuptools wheel &&
       pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cpu --only-binary=:all: &&
       pip install -r requirements.txt --only-binary=:all:
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
