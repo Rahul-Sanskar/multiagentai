@@ -345,7 +345,7 @@ python -m pytest tests/
 
 A full 10-minute walkthrough of the system is available here:
 
-👉 https://your-link-here
+👉 https://drive.google.com/file/d/13_FWdskU3FcDY3zb2wl9CnSpmzyqQCG3/view?usp=drive_link
 
 This demo covers:
 - End-to-end pipeline execution
