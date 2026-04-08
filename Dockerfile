@@ -32,4 +32,4 @@ EXPOSE 8000
 
 # NLTK data is downloaded at runtime inside main.py lifespan — NOT here.
 # Downloading at build time adds ~50 MB to the image and slows every build.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
