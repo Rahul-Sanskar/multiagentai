@@ -227,26 +227,23 @@ class PipelineOrchestrator:
         tone = profile_report.get("writing_style", {}).get("tone", "informational")
         profile_keywords = profile_report.get("topics", {}).get("top_keywords", [])
 
-        review_tasks = [
-            self._create_review_for_entry(
-                entry=entry,
-                db=db,
-                tone=tone,
-                profile_keywords=profile_keywords,
-                rag_query=rag_query,
-            )
-            for entry in result.calendar
-        ]
-
-        review_results = await asyncio.gather(*review_tasks, return_exceptions=True)
-
+        # Run sequentially — asyncio.gather on a shared SQLAlchemy session causes
+        # "Session is already flushing" when multiple coroutines flush concurrently.
         reviews: list[dict[str, Any]] = []
         errors: list[str] = []
-        for r in review_results:
-            if isinstance(r, Exception):
-                errors.append(str(r))
-            elif r is not None:
-                reviews.append(r)
+        for entry in result.calendar:
+            try:
+                review = await self._create_review_for_entry(
+                    entry=entry,
+                    db=db,
+                    tone=tone,
+                    profile_keywords=profile_keywords,
+                    rag_query=rag_query,
+                )
+                if review is not None:
+                    reviews.append(review)
+            except Exception as exc:
+                errors.append(str(exc))
 
         result.reviews = reviews
         result.stages.append(StageResult(

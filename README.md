@@ -340,3 +340,17 @@ python -m pytest tests/
 | `INSTAGRAM_USER_ID` | Optional | Publish to Instagram |
 | `INSTAGRAM_ACCESS_TOKEN` | Optional | Publish to Instagram |
 | `IMPACT_FETCH_DELAY_SECONDS` | Optional | Default 3600 (1 hour) |
+
+## 🎬 Demo Video
+
+A full 10-minute walkthrough of the system is available here:
+
+👉 https://your-link-here
+
+This demo covers:
+- End-to-end pipeline execution
+- Multi-agent architecture
+- RAG pipeline
+- Human-in-the-loop workflow
+- Publishing system
+- Real vs fallback API behavior
