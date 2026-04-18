@@ -81,7 +81,7 @@ Storage: SQLite (dev) · PostgreSQL (prod) · FAISS index on disk
 ### 1. Clone and install backend
 
 ```bash
-git clone https://github.com/Rahul-Sanskarchore/multiagentai.git
+git clone https://github.com/Rahul-Sanskar/multiagentai.git
 cd multiagentai
 
 python -m venv .venv
